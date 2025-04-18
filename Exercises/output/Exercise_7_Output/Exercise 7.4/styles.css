@@ -23,12 +23,13 @@
     background-color: aliceblue;
     color: #000000;
     padding: 10px;
+    font-size: 120%;
 }
 
 .table_component img {
     width:100%;
 }
 
-        .table_component ul{
-            left-padding:20%;
-        }
+.table_component ul{
+    left-padding:20%;
+}
