@@ -1,5 +1,10 @@
-* {
+body {
     background-color: aliceblue;
+    font-size: 100%
+}
+
+h1 {
+   font-size: 50vw;
 }
         
 .table_component {
@@ -23,6 +28,7 @@
     background-color: aliceblue;
     color: #000000;
     padding: 10px;
+    font-size: 2em
 }
 
 .table_component img {
