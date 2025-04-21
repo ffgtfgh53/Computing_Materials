@@ -1,0 +1,26 @@
+h1 {
+    color: white;
+    border: yellow 4px;
+    background: black;
+    text-align: center;
+  }
+
+h2 {
+    font-size: 2em;
+    font-family: Arial, sans-serif;
+    font-style: italic;
+  }
+
+.education {
+    color: red;
+}
+
+li.green8px {
+    color: green;
+    font-size: 8px;
+}
+
+li.courier {
+    font-family: 'Courier New';
+    font-style: italic;
+}
