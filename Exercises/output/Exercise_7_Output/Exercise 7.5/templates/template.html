@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="iso-8859-13"/>
+    <title>Wow Gaming</title>
+    <style>
+        * {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        div {
+            text-align: center;
+        }
+        table {
+            border: 1px solid gray;
+            height: 100%;
+            width: 90%;
+            table-layout: auto;
+            border-collapse: collapse;
+            border-spacing: 1px;
+            text-align: left;
+            margin: auto;
+        }
+
+        th, td {
+            border: 2px solid #cccccc;
+            background-color:whitesmoke;
+            color: #000000;
+            padding: 10px;
+        }
+
+            th {
+                background-color: #dededf;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;font-size: 2rem;">Table of much gaming</h1>
+    <div>
+        <table>
+            <tr>
+                {% for i in header %}
+                <th>{{i}}</th>
+                {% endfor %}
+            </tr>
+            {% for row in data %}
+            <tr>
+                {% for k in row %}
+                <td>{{k}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
