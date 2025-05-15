@@ -91,12 +91,14 @@ class Cube_2x2():
 #Main code
 scrambled_cube = Cube_2x2()
 from random import choices
+from re import compile, findall
 scrambled_cube.move(choices(["U","U'","D","D'","L","L'","R","R'","F","F'","B","B'"],k=15),show=False)
-print(scrambled_cube,flush=True)
+print("Scrambled cube:\n", scrambled_cube,flush=True)
 solved_cube = Cube_2x2()
+pattern = compile(r"[udlrfbUDLRFB]'?")
 while scrambled_cube[:] != solved_cube[:]:
     try:
-        scrambled_cube.move([input("Move: ")])
+        scrambled_cube.move(findall(pattern=pattern, string=input("Enter move(s): ")))
     except SyntaxError:
         print("Invalid move, try again")
 print("TADAA DONE")
