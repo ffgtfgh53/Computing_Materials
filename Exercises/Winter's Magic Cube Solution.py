@@ -22,9 +22,9 @@ class Cube_2x2():
     def __getitem__(self, key) -> list:
         return [self.front,self.right,self.back,self.left,self.top,self.bottom][key]
     
-    def __str__(cl):
+    def __str__(self):
         #oneliner :skull:
-        return f'      {cl[4][0]:<2} {cl[4][1]:<2}\n      {cl[4][2]:<2} {cl[4][3]:<2}\n{cl[3][0]:<2} {cl[3][1]:<2} {cl[0][0]:<2} {cl[0][1]:<2} {cl[1][0]:<2} {cl[1][1]:<2} {cl[2][0]:<2} {cl[2][1]:<2}\n{cl[3][2]:<2} {cl[3][3]:<2} {cl[0][2]:<2} {cl[0][3]:<2} {cl[1][2]:<2} {cl[1][3]:<2} {cl[2][2]:<2} {cl[2][3]:<2}\n      {cl[5][0]:<2} {cl[5][1]:<2}\n      {cl[5][2]:<2} {cl[5][3]:<2}'
+        return f'      {self[4][0]:<2} {self[4][1]:<2}\n      {self[4][2]:<2} {self[4][3]:<2}\n{self[3][0]:<2} {self[3][1]:<2} {self[0][0]:<2} {self[0][1]:<2} {self[1][0]:<2} {self[1][1]:<2} {self[2][0]:<2} {self[2][1]:<2}\n{self[3][2]:<2} {self[3][3]:<2} {self[0][2]:<2} {self[0][3]:<2} {self[1][2]:<2} {self[1][3]:<2} {self[2][2]:<2} {self[2][3]:<2}\n      {self[5][0]:<2} {self[5][1]:<2}\n      {self[5][2]:<2} {self[5][3]:<2}'
 
     #Moving
     def move(self, sequence:list[str]|tuple[str], show:bool=True) -> None:
@@ -38,53 +38,53 @@ class Cube_2x2():
     #The following section contains many magic numbers
     #Where do the magic numbers come from? Up my arse!
     #Rotate a cow in 3D in your head and you will see!
-    def move_U(s):
-        s.top = [s.top[2], s.top[0], s.top[3], s.top[1]]
-        s.left[:2], s.front[:2], s.right[:2], s.back[:2] = s.front[:2], s.right[:2], s.back[:2], s.left[:2]
+    def move_U(self):
+        self.top = [self.top[2], self.top[0], self.top[3], self.top[1]]
+        self.left[:2], self.front[:2], self.right[:2], self.back[:2] = self.front[:2], self.right[:2], self.back[:2], self.left[:2]
 
-    def move_U_prime(s):
-        s.top = [s.top[1], s.top[3], s.top[0], s.top[2]]
-        s.left[:2], s.front[:2], s.right[:2], s.back[:2] = s.back[:2], s.left[:2], s.front[:2], s.right[:2]
+    def move_U_prime(self):
+        self.top = [self.top[1], self.top[3], self.top[0], self.top[2]]
+        self.left[:2], self.front[:2], self.right[:2], self.back[:2] = self.back[:2], self.left[:2], self.front[:2], self.right[:2]
 
-    def move_D(s):
-        s.bottom = [s.bottom[2], s.bottom[0], s.bottom[3], s.bottom[1]]
-        s.left[2:], s.front[2:], s.right[2:], s.back[2:] = s.back[2:], s.left[2:], s.front[2:], s.right[2:]
+    def move_D(self):
+        self.bottom = [self.bottom[2], self.bottom[0], self.bottom[3], self.bottom[1]]
+        self.left[2:], self.front[2:], self.right[2:], self.back[2:] = self.back[2:], self.left[2:], self.front[2:], self.right[2:]
 
-    def move_D_prime(s):
-        s.bottom = [s.bottom[1], s.bottom[3], s.bottom[0], s.bottom[2]]
-        s.left[2:], s.front[2:], s.right[2:], s.back[2:] = s.front[2:], s.right[2:], s.back[2:], s.left[2:]
+    def move_D_prime(self):
+        self.bottom = [self.bottom[1], self.bottom[3], self.bottom[0], self.bottom[2]]
+        self.left[2:], self.front[2:], self.right[2:], self.back[2:] = self.front[2:], self.right[2:], self.back[2:], self.left[2:]
 
-    def move_R(s):
-        s.right = [s.right[2], s.right[0], s.right[3], s.right[1]]
-        s.bottom[1], s.bottom[3], s.front[1], s.front[3], s.top[1], s.top[3], s.back[2], s.back[0] = s.back[2], s.back[0], s.bottom[1], s.bottom[3], s.front[1], s.front[3], s.top[1], s.top[3]
+    def move_R(self):
+        self.right = [self.right[2], self.right[0], self.right[3], self.right[1]]
+        self.bottom[1], self.bottom[3], self.front[1], self.front[3], self.top[1], self.top[3], self.back[2], self.back[0] = self.back[2], self.back[0], self.bottom[1], self.bottom[3], self.front[1], self.front[3], self.top[1], self.top[3]
 
-    def move_R_prime(s):
-        s.right = [s.right[1], s.right[3], s.right[0], s.right[2]]
-        s.bottom[1], s.bottom[3], s.front[1], s.front[3], s.top[1], s.top[3], s.back[2], s.back[0] = s.front[1], s.front[3], s.top[1], s.top[3], s.back[2], s.back[0], s.bottom[1], s.bottom[3]
+    def move_R_prime(self):
+        self.right = [self.right[1], self.right[3], self.right[0], self.right[2]]
+        self.bottom[1], self.bottom[3], self.front[1], self.front[3], self.top[1], self.top[3], self.back[2], self.back[0] = self.front[1], self.front[3], self.top[1], self.top[3], self.back[2], self.back[0], self.bottom[1], self.bottom[3]
 
-    def move_L(s):
-        s.left = [s.left[2], s.left[0], s.left[3], s.left[1]]
-        s.top[0], s.top[2], s.front[0], s.front[2], s.bottom[0], s.bottom[2], s.back[3], s.back[1] = s.back[3], s.back[1], s.top[0], s.top[2], s.front[0], s.front[2], s.bottom[0], s.bottom[2]
+    def move_L(self):
+        self.left = [self.left[2], self.left[0], self.left[3], self.left[1]]
+        self.top[0], self.top[2], self.front[0], self.front[2], self.bottom[0], self.bottom[2], self.back[3], self.back[1] = self.back[3], self.back[1], self.top[0], self.top[2], self.front[0], self.front[2], self.bottom[0], self.bottom[2]
 
-    def move_L_prime(s):
-        s.left = [s.left[1], s.left[3], s.left[0], s.left[2]]
-        s.top[0], s.top[2], s.front[0], s.front[2], s.bottom[0], s.bottom[2], s.back[3], s.back[1] = s.front[0], s.front[2], s.bottom[0], s.bottom[2], s.back[3], s.back[1], s.top[0], s.top[2]
+    def move_L_prime(self):
+        self.left = [self.left[1], self.left[3], self.left[0], self.left[2]]
+        self.top[0], self.top[2], self.front[0], self.front[2], self.bottom[0], self.bottom[2], self.back[3], self.back[1] = self.front[0], self.front[2], self.bottom[0], self.bottom[2], self.back[3], self.back[1], self.top[0], self.top[2]
 
-    def move_F(s):
-        s.front = [s.front[2], s.front[0], s.front[3], s.front[1]]
-        s.top[2], s.top[3], s.right[0], s.right[2], s.bottom[1], s.bottom[0], s.left[3], s.left[1] = s.left[3], s.left[1], s.top[2], s.top[3], s.right[0], s.right[2], s.bottom[1], s.bottom[0]
+    def move_F(self):
+        self.front = [self.front[2], self.front[0], self.front[3], self.front[1]]
+        self.top[2], self.top[3], self.right[0], self.right[2], self.bottom[1], self.bottom[0], self.left[3], self.left[1] = self.left[3], self.left[1], self.top[2], self.top[3], self.right[0], self.right[2], self.bottom[1], self.bottom[0]
 
-    def move_F_prime(s):
-        s.front = [s.front[1], s.front[3], s.front[0], s.front[2]]
-        s.top[2], s.top[3], s.right[0], s.right[2], s.bottom[1], s.bottom[0], s.left[3], s.left[1] = s.right[0], s.right[2], s.bottom[1], s.bottom[0], s.left[3], s.left[1], s.top[2], s.top[3]
+    def move_F_prime(self):
+        self.front = [self.front[1], self.front[3], self.front[0], self.front[2]]
+        self.top[2], self.top[3], self.right[0], self.right[2], self.bottom[1], self.bottom[0], self.left[3], self.left[1] = self.right[0], self.right[2], self.bottom[1], self.bottom[0], self.left[3], self.left[1], self.top[2], self.top[3]
 
-    def move_B(s):
-        s.back = [s.back[2], s.back[0], s.back[3], s.back[1]]
-        s.top[1], s.top[0], s.left[0], s.left[2], s.bottom[2], s.bottom[3], s.right[3], s.right[1] = s.right[3], s.right[1], s.top[1], s.top[0], s.left[0], s.left[2], s.bottom[2], s.bottom[3]
+    def move_B(self):
+        self.back = [self.back[2], self.back[0], self.back[3], self.back[1]]
+        self.top[1], self.top[0], self.left[0], self.left[2], self.bottom[2], self.bottom[3], self.right[3], self.right[1] = self.right[3], self.right[1], self.top[1], self.top[0], self.left[0], self.left[2], self.bottom[2], self.bottom[3]
 
-    def move_B_prime(s):
-        s.back = [s.back[1], s.back[3], s.back[0], s.back[2]]
-        s.top[1], s.top[0], s.left[0], s.left[2], s.bottom[2], s.bottom[3], s.right[3], s.right[1] = s.left[0], s.left[2], s.bottom[2], s.bottom[3], s.right[3], s.right[1], s.top[1], s.top[0]
+    def move_B_prime(self):
+        self.back = [self.back[1], self.back[3], self.back[0], self.back[2]]
+        self.top[1], self.top[0], self.left[0], self.left[2], self.bottom[2], self.bottom[3], self.right[3], self.right[1] = self.left[0], self.left[2], self.bottom[2], self.bottom[3], self.right[3], self.right[1], self.top[1], self.top[0]
 
     #End of magic number wizardry, end of class
 
