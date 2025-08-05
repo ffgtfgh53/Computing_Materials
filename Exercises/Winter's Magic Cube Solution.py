@@ -32,8 +32,12 @@ class Cube_2x2():
         for i in sequence:
             #I am not doing 12 if statements for each movement
             #I can probbly structure it but too much effort
-            eval("self.move_"+i.upper().replace("'", '_prime')+"()")
-            if show: print("Move: ", i,"\n",self,sep="",flush=True)
+            move = i.upper().replace("'", '_prime')
+            if move not in ['U', 'D', 'L', 'R', 'F', 'B', 
+                "U_prime", "D_prime", "L_prime", "R_prime", "F_prime", "B_prime"]:
+                raise NotImplementedError(f"Invalid move '{i}'")
+            eval(f"self.move_{move}()")
+            if show: print("Move: ", move,"\n",self,sep="",flush=True)
             #Flush buffer to ensure printed before next command
 
     #The following section contains many magic numbers
@@ -78,12 +82,18 @@ class Cube_2x2():
 #Main code
 scrambled_cube = Cube_2x2()
 scrambled_cube.move(choices(["U","U'","D","D'","L","L'","R","R'","F","F'","B","B'"],k=15),show=False)
-print("Scrambled cube:\n", scrambled_cube,flush=True)
+print("Scrambled cube:", scrambled_cube,flush=True, sep='\n')
 solved_cube = Cube_2x2()
 pattern = compile(r"[udlrfbUDLRFB]'?")
 while scrambled_cube[:] != solved_cube[:]:
     try:
-        scrambled_cube.move(findall(pattern=pattern, string=input("Enter move(s): ")))
+        scrambled_cube.move(
+            findall(pattern=pattern, string=input("Enter move(s): "))
+            )
     except SyntaxError:
         print("Invalid move, try again")
+    except KeyboardInterrupt:
+        #unoriginal idea
+        print("OPYTHAT", flush=True)
+        break
 print("TADAA DONE")
