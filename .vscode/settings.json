@@ -3,5 +3,5 @@
     "githubPullRequests.ignoredPullRequestBranches": [
         "main"
     ],
-    "git.enabled": false
+    "git.enabled": true
 }
