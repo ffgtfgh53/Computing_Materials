@@ -3,5 +3,23 @@
     "githubPullRequests.ignoredPullRequestBranches": [
         "main"
     ],
-    "git.enabled": true
+    "git.enabled": true,
+    "dbcode.connections": [
+        {
+            "connectionId": "wUPE2_TupjKuggc5TmwX_",
+            "name": "Default",
+            "driver": "mongodb",
+            "connectionType": "host",
+            "driverOptions": {
+                "protocol": "mongodb://"
+            },
+            "host": "localhost",
+            "port": 27017,
+            "ssl": false,
+            "authMethod": "password",
+            "savePassword": "secretStorage",
+            "readOnly": false,
+            "connectionTimeout": 30
+        }
+    ]
 }
