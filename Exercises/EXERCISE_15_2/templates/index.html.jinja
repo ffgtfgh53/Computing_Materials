@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<head>
+    <meta charset="UTF-8" lang="en-UK">
+    <title>Phone by brand {{ brand }}</title>
+    <style>
+        * {
+            background-color: cornflowerblue;
+        }
+        table, tr, th, td {
+            border: 1px solid black; 
+            border-collapse: collapse;
+            margin: auto;
+            padding: 5px 25px;
+            text-align: center;
+            font-size: larger;
+        }
+        tr {
+            width: auto;
+        }
+        td, th {
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Phone brand: {{ brand }}</h1>
+    <form action="/" method="get">
+    <span>
+        <label>Search by phone brand: <input type="text" placeholder="{{ brand }}" id="brand" name="brand"></label>
+        <button type="submit">Search</button>
+    </span>
+    </form>
+    <table>
+    <tr>
+        <th>Price</th><th>Model</th><th>Colour</th>
+    </tr>
+    {% for phone in phones %}
+    <tr>
+        <td>{{ phone['price'] }}</td>
+        <td>{{ phone['model'] }}</td>
+        <td style="color: {{ phone['colour'] }};">{{ phone['colour'] }}</td>
+    </tr>
+    {% endfor %}
+    
+    </table>
+</body>
