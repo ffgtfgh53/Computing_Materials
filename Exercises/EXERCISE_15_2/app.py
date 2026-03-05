@@ -10,7 +10,8 @@ app = Flask(__name__)
 @app.route('/')
 def main():
     brand = request.args.get("brand", default='')
-    phones = phone.find({'brand': brand})
+    phones = list(phone.find({'brand': brand}))
+    phones.sort(key=lambda a: a['price'])
     return render_template('index.html.jinja', brand=brand, phones=phones)
 
 if __name__ == '__main__':
